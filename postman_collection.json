@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "e9a1d6ff-d022-40fd-bad0-70243cdfe569",
+		"name": "Odine Marketplace API",
+		"description": "Bu koleksiyon, Odine Freelance Marketplace API'nin tüm endpoint'lerini içerir.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39230582"
+	},
+	"item": [
+		{
+			"name": "Freelancer Endpoint’leri",
+			"item": [
+				{
+					"name": "Tüm freelancer’ları getir",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/freelancers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"freelancers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Yeni freelancer ekle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Yiğit Yılmaz\",\r\n  \"email\": \"yiğit@example.com\",\r\n  \"phone\": \"555-5555\",\r\n  \"city\": \"Ankara\",\r\n  \"freelancerType\": \"SOFTWARE_DEVELOPER\",\r\n  \"softwareLanguages\": [\"C\", \"C++\"],\r\n  \"specialties\": [\"Backend\",\"Frontend\"]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/freelancers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"freelancers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Belirli bir freelancer’ı getir",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Freelancer arama",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/freelancers/search?name=Ali",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"freelancers",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Ali"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "✅ **📌** **`GET /api/freelancers`** → Tüm freelancer’ları getir  \n✅ **📌** **`POST /api/freelancers`** → Yeni freelancer ekle  \n✅ **📌** **`GET /api/freelancers/{id}`** → Belirli bir freelancer’ı getir  \n✅ **📌** **`GET /api/freelancers/search?name=Ali&city=Istanbul&freelancerType=SOFTWARE_DEVELOPER`** → Freelancer arama"
+		},
+		{
+			"name": "Job Endpoint’leri",
+			"item": [
+				{
+					"name": "Yeni iş ekle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/jobs?freelancerId=1&description=Mobil uygulama geliştirme işi&jobStatus=IN_PROGRESS",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "freelancerId",
+									"value": "1"
+								},
+								{
+									"key": "description",
+									"value": "Mobil uygulama geliştirme işi"
+								},
+								{
+									"key": "jobStatus",
+									"value": "IN_PROGRESS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Belirli bir işi getir",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/jobs/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jobs",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Freelancer’ın işlerini getir",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/jobs/freelancer/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jobs",
+								"freelancer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "İşi güncelle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"jobStatus\": \"FINISHED\",\r\n  \"description\": \"İş tamamlandı.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/jobs/6?jobStatus=FINISHED&description=İş tamamlandı.",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"jobs",
+								"6"
+							],
+							"query": [
+								{
+									"key": "jobStatus",
+									"value": "FINISHED"
+								},
+								{
+									"key": "description",
+									"value": "İş tamamlandı."
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "✅ **📌** **`POST /api/jobs`** → Yeni iş ekle  \n✅ **📌** **`GET /api/jobs/{id}`** → Belirli bir işi getir  \n✅ **📌** **`GET /api/jobs/freelancer/{freelancerId}`** → Freelancer’ın işlerini getir  \n✅ **📌** **`PUT /api/jobs/{id}`** → İşi güncelle (status, description)"
+		},
+		{
+			"name": "Comment Endpoint’leri",
+			"item": [
+				{
+					"name": "Yeni yorum ekle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"jobId\": 6,\r\n  \"commenterName\": \"Mehmet\",\r\n  \"commentText\": \"Harika bir iş çıkardı!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/comments?jobId=6&commenterName=Mehmet&commentText=Harika bir iş çıkardı!",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments"
+							],
+							"query": [
+								{
+									"key": "jobId",
+									"value": "6"
+								},
+								{
+									"key": "commenterName",
+									"value": "Mehmet"
+								},
+								{
+									"key": "commentText",
+									"value": "Harika bir iş çıkardı!"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bir işe ait yorumları getir",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/comments/job/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments",
+								"job",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Yorumu güncelle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"commentText\": \"Harika bir çalışma!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/comments/1?commentText=Harika bir çalışma!",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments",
+								"1"
+							],
+							"query": [
+								{
+									"key": "commentText",
+									"value": "Harika bir çalışma!"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "✅ **📌** **`POST /api/comments`** → Yeni yorum ekle  \n✅ **📌** **`GET /api/comments/job/{jobId}`** → Bir işe ait yorumları getir  \n✅ **📌** **`PUT /api/comments/{id}`** → Yorumu güncelle"
+		}
+	]
+}
