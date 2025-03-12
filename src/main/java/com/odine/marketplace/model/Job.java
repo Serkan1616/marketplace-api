@@ -1,16 +1,9 @@
 package com.odine.marketplace.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
 public class Job {
 
     @Id
@@ -32,4 +25,16 @@ public class Job {
     public enum JobStatus {
         IN_PROGRESS, FINISHED
     }
+
+    public Job() {}
+
+    public Long getId() { return id; }
+    public Freelancer getFreelancer() { return freelancer; }
+    public LocalDate getCreatedDate() { return createdDate; }
+    public JobStatus getJobStatus() { return jobStatus; }
+    public String getDescription() { return description; }
+
+    public void setFreelancer(Freelancer freelancer) { this.freelancer = freelancer; }
+    public void setJobStatus(JobStatus jobStatus) { this.jobStatus = jobStatus; }
+    public void setDescription(String description) { this.description = description; }
 }
